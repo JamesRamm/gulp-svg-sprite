@@ -26,8 +26,8 @@ npm install --save-dev gulp-svg-sprite
 Then, add it to your `gulpfile.js`:
 
 ```javascript
-var gulp				= require('gulp'),
-svgSprite				= require('gulp-svg-sprite');
+var gulp = require('gulp'),
+svgSprite = require('gulp-svg-sprite');
 
 gulp.src('path/to/assets/*.svg')
 	.pipe(svgSprite( /* ... Insert your configuration here ... */ ))
@@ -60,18 +60,18 @@ With Gulp, there is no need to specifiy a **main output directory**, as the gene
 In this very basic example, mostly default settings will be applied to create a traditional CSS sprite (bundle of SVG sprite and CSS stylesheet).
 
 ```javascript
-var gulp				= require('gulp'),
-svgSprite				= require('gulp-svg-sprite'),
+var gulp = require('gulp'),
+svgSprite = require('gulp-svg-sprite'),
 
 // Basic configuration example
-config					= {
-	mode				: {
-		css				: {		// Activate the «css» mode
-			render		: {
-				css		: true	// Activate CSS output (with default options)
-			}
-		}
+config = {
+  mode: {
+    css: {  // Activate the «css» mode
+      render: {
+	    css: true	// Activate CSS output (with default options)
+	  }
 	}
+  }
 };
 
 gulp.src('**/*.svg', {cwd: 'path/to/assets'})
@@ -103,30 +103,30 @@ The following example is a little more complex:
 * We'll keep the intermediate SVG source files.
 
 ```javascript
-var gulp				= require('gulp'),
-svgSprite				= require('gulp-svg-sprite'),
+var gulp = require('gulp'),
+svgSprite = require('gulp-svg-sprite'),
 
 // More complex configuration example
-config					= {
-	shape				: {
-		dimension		: {			// Set maximum dimensions
-			maxWidth	: 32,
-			maxHeight	: 32
-		},
-		spacing			: {			// Add padding
-			padding		: 10
-		},
-		dest			: 'out/intermediate-svg'	// Keep the intermediate files
+config = {
+  shape: {
+    dimension: {  //Set maximum dimensions
+      maxWidth: 32,
+      maxHeight: 32
+    },
+    spacing: {  //Add padding
+	  padding: 10
 	},
-	mode				: {
-		view			: {			// Activate the «view» mode
-			bust		: false,
-			render		: {
-				scss	: true		// Activate Sass output (with default options)
-			}
-		},
-		symbol			: true		// Activate the «symbol» mode
-	}
+	dest: 'out/intermediate-svg'  //Keep the intermediate files
+  },
+  mode: {
+    view: { //Activate the «view» mode
+      bust: false,
+	  render: {
+        scss: true  //Activate Sass output (with default options)
+	  }
+    },
+    symbol: true  //Activate the «symbol» mode
+  }
 };
 
 gulp.src('**/*.svg', {cwd: 'path/to/assets'})
@@ -156,19 +156,19 @@ out
 Errors might always happen — maybe there are some corrupted source SVG files, the default [SVGO](https://github.com/svg/svgo) plugin configuration is too aggressive or there's just an error in *svg-sprite*'s code. To make your tasks more robust, you might consider using [plumber](https://github.com/floatdrop/gulp-plumber) and adding your custom error handling:
 
 ```javascript
-var gulp				= require('gulp'),
-svgSprite				= require('gulp-svg-sprite'),
-plumber					= require('gulp-plumber'),
+var gulp = require('gulp'),
+svgSprite = require('gulp-svg-sprite'),
+plumber = require('gulp-plumber'),
 
 // Basic configuration example
-config					= {
-	mode				: {
-		css				: {
-			render		: {
-				css		: true
-			}
-		}
+config = {
+  mode: {
+    css: {
+      render: {
+	    css: true
+	  }
 	}
+  }
 };
 
 gulp.src('**/*.svg', {cwd: ''})
